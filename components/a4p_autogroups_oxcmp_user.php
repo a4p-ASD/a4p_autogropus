@@ -186,7 +186,7 @@ class a4p_autogroups_oxcmp_user extends a4p_autogroups_oxcmp_user_parent {
 		// ------------------------------------------------------------------------------------------------
 		// Benutzer bei Eingabe von Firma + UST-ID automatisch in Gruppe "Händler" ( "oxiddealer" ) aufnehmen
 
-		$bSetting_addToDealer					= $this->getConfig()->getConfigParam( "a4p_addToDealer" );
+		$bSetting_addToDealer					= $this->getConfig()->getConfigParam( "a4p_autogroups_addToDealer" );
 		
 		if ( $bSetting_addToDealer ) {
 				
@@ -220,7 +220,7 @@ class a4p_autogroups_oxcmp_user extends a4p_autogroups_oxcmp_user_parent {
 		// ------------------------------------------------------------------------------------------------
 		// Module-Setting für neue Gruppenaufnahme holen
 
-		$sSetting_addToGroup					= $this->getConfig()->getConfigParam( "a4p_addToGroup" );
+		$sSetting_addToGroup					= $this->getConfig()->getConfigParam( "a4p_autogroups_addToGroup" );
 		$aSetting_addToGroup					= explode( ",", $sSetting_addToGroup );
 		
 		foreach( $aSetting_addToGroup as $key => $curGroup ) {
@@ -233,7 +233,7 @@ class a4p_autogroups_oxcmp_user extends a4p_autogroups_oxcmp_user_parent {
 		// ------------------------------------------------------------------------------------------------
 		// Benutzer in Gruppe mit gewähltem Land aufnehmen
 
-		$bSetting_addToCountryGroup				= $this->getConfig()->getConfigParam( "a4p_addToCountryGroup" );
+		$bSetting_addToCountryGroup				= $this->getConfig()->getConfigParam( "a4p_autogroups_addToCountryGroup" );
 
 		if ( $bSetting_addToCountryGroup ) {
 				

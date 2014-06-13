@@ -28,3 +28,4 @@ BESCHREIBUNG:
 	bei Angaben von Firma + UST-ID in Registrierformular optional in Gruppe Händler aufnehmen
 	
 	genauere Prüfung der UST-ID ( für OXID-CE ) je angegebenes Land
+

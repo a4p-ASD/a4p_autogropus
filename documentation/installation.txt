@@ -1,0 +1,30 @@
+
+
+/**
+ *	@author:	a4p ASD / Andreas Dorner
+ *	@company:	apps4print / page one GmbH, Nürnberg, Germany
+ *
+ *
+ *	@version:	1.0.0
+ *	@date:		13.06.2014
+ *
+ *
+ *	installation.txt
+ *
+ *	apps4print - a4p_autogroups - add new users to defined groups
+ *
+ */
+
+
+VORAUSSETZUNGEN:
+
+	für OXID CE 4.7.2
+	
+
+BESCHREIBUNG:
+
+	neu registrierten Benutzer in angegebenen Gruppen aufnehmen
+	
+	bei Angaben von Firma + UST-ID in Registrierformular optional in Gruppe Händler aufnehmen
+	
+	genauere Prüfung der UST-ID ( für OXID-CE ) je angegebenes Land

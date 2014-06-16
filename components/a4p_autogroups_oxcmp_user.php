@@ -24,8 +24,22 @@ class a4p_autogroups_oxcmp_user extends a4p_autogroups_oxcmp_user_parent {
 	// ------------------------------------------------------------------------------------------------
 	// ------------------------------------------------------------------------------------------------
 	
+	#protected $o_a4p_debug_log					= null;
 	
 	// ------------------------------------------------------------------------------------------------
+	// ------------------------------------------------------------------------------------------------
+	
+	public function __construct() {
+		
+		parent::__construct();
+		
+		
+		#$this->o_a4p_debug_log					= oxNew( "a4p_debug_log" );
+		#$this->o_a4p_debug_log->a4p_debug_log_init( true, __CLASS__ . ".txt", null );
+		#$this->o_a4p_debug_log->a4p_debug_log_init( true, "a4p-log.txt", null );
+		
+	}
+	
 	// ------------------------------------------------------------------------------------------------
 
 	/**
@@ -56,6 +70,7 @@ class a4p_autogroups_oxcmp_user extends a4p_autogroups_oxcmp_user_parent {
 	 * @return  mixed	redirection string or true if successful, false otherwise
 	 */
 	public function createUser() {
+	
 		
 		$blActiveLogin = $this->getParent()->isEnabledPrivateSales();
 	
@@ -182,6 +197,7 @@ class a4p_autogroups_oxcmp_user extends a4p_autogroups_oxcmp_user_parent {
 	// ------------------------------------------------------------------------------------------------
 	
 	protected function a4p_add_to_auto_group( $oUser ) {
+	
 		
 		// ------------------------------------------------------------------------------------------------
 		// Benutzer bei Eingabe von Firma + UST-ID automatisch in Gruppe "Händler" ( "oxiddealer" ) aufnehmen
@@ -204,14 +220,19 @@ class a4p_autogroups_oxcmp_user extends a4p_autogroups_oxcmp_user_parent {
 		
 			// ------------------------------------------------------------------------------------------------
 			// UST-ID genauer prüfen
-			if ( !$this->a4p_checkUstId( $oUser ) )
+			if ( !$this->a4p_checkUstId( $oUser ) ) {
 				$bCheckDealerFields				= false;
-				
+			}
+			// ------------------------------------------------------------------------------------------------
+			
+			
 			// ------------------------------------------------------------------------------------------------
 			// bei erfolgreicher Prüfung in Gruppe aufnehmen
-			if ( $bCheckDealerFields && !$this->getUser()->inGroup( "oxiddealer" ) ) {
-		
-				$this->getUser()->addToGroup( "oxiddealer" );		
+			#if ( $bCheckDealerFields && !$this->getUser()->inGroup( "oxiddealer" ) ) {
+			if ( $bCheckDealerFields && !$oUser->inGroup( "oxiddealer" ) ) {
+
+				#$this->getUser()->addToGroup( "oxiddealer" );		
+				$oUser->addToGroup( "oxiddealer" );		
 			}		
 		}
 		// ------------------------------------------------------------------------------------------------
@@ -224,8 +245,11 @@ class a4p_autogroups_oxcmp_user extends a4p_autogroups_oxcmp_user_parent {
 		$aSetting_addToGroup					= explode( ",", $sSetting_addToGroup );
 		
 		foreach( $aSetting_addToGroup as $key => $curGroup ) {
+
 			$curGroup							= trim( $curGroup );
-			$this->getUser()->addToGroup( $curGroup );
+
+			#$this->getUser()->addToGroup( $curGroup );
+			$oUser->addToGroup( $curGroup );
 		}
 		// ------------------------------------------------------------------------------------------------
 		
@@ -243,19 +267,17 @@ class a4p_autogroups_oxcmp_user extends a4p_autogroups_oxcmp_user_parent {
 			// Land für oxcountryid und Gruppe mit selben Title ermitteln
 			$sSQL								= "SELECT oxgroups.OXID FROM oxgroups";
 			$sSQL								.= " INNER JOIN oxcountry ON oxgroups.OXTITLE = oxcountry.OXTITLE";
-			$sSQL								.= " WHERE oxcountry.OXID = '$sCurUserCountryID'";
-		
+			$sSQL								.= " WHERE oxcountry.OXID = '" . $sCurUserCountryID . "'";
+
 			$rows								= oxDb::getDb( 2 )->Execute( $sSQL );
 			$oxgroups__oxid						= false;
 			if( $rows != false && $rows->recordCount() > 0 && !$rows->EOF ) {
 				$oxgroups__oxid					= $rows->fields[ "OXID" ];
 			}
 			if ( $oxgroups__oxid ) {
-		
-				$this->o_a4p_debug_log->_log( "\$sCurUserCountryID", $sCurUserCountryID, __FILE__, __FUNCTION__, __LINE__ );
-				$this->o_a4p_debug_log->_log( "addToGroup()", $oxgroups__oxid, __FILE__, __FUNCTION__, __LINE__ );
-			
-				$this->getUser()->addToGroup( $oxgroups__oxid );
+					
+				#$this->getUser()->addToGroup( $oxgroups__oxid );
+				$oUser->addToGroup( $oxgroups__oxid );
 			}
 			
 		}
@@ -283,7 +305,7 @@ class a4p_autogroups_oxcmp_user extends a4p_autogroups_oxcmp_user_parent {
 	
 			$oCountry							= oxNew( 'oxcountry' );
 			$oCountry->load( $sCountryId );
-				
+
 			if ( !$oCountry->isForeignCountry() )
 				return false;
 
@@ -302,7 +324,7 @@ class a4p_autogroups_oxcmp_user extends a4p_autogroups_oxcmp_user_parent {
 
 			if ( !$oCountry->isInEU() )
 				return false;
-	
+
 			if ( strncmp( $oUser->oxuser__oxustid->value, $oCountry->oxcountry__oxisoalpha2->value, 2 ) === 0 )
 				return true;
 			else

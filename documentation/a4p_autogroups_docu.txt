@@ -9,7 +9,7 @@
  *	@date:		13.06.2014
  *
  *
- *	installation.txt
+ *	a4p_autogroups_docu.txt
  *
  *	apps4print - a4p_autogroups - add new users to defined groups
  *

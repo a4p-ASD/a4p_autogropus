@@ -25,7 +25,7 @@ $aModule = array(
 	'id'			=> 'a4p_autogroups',
 	'title'			=> 'apps4print - a4p_autogroups - OXID 4.7.2',
 	'description'	=> array(
-		'de'									=> 'add new users to defined groups', 
+		'de'									=> 'neue Benutzer zu festgelegten Gruppen hinzufügen', 
 		'en'									=> 'add new users to defined groups'
 	),
 	'lang'			=> 'de',

@@ -5,19 +5,23 @@
  *	@company:	apps4print / page one GmbH, Nürnberg, Germany
  *
  *
- *	@version:	1.0.0
- *	@date:		09.04.2014
+ *	@version:	1.0.1
+ *	@date:		11.03.2015
  *
  *
  *	module_options.php
  *
- *	apps4print - a4p_autogroups - add new users to defined groups
+ *	apps4print - a4p_autogroups - neue Benutzer zu festgelegten Gruppen hinzufügen
  *
  */
 
-// -------------------------------
-// RESOURCE IDENTIFIER = STRING
-// -------------------------------
+// ------------------------------------------------------------------------------------------------
+// apps4print
+// ------------------------------------------------------------------------------------------------
+
+$sLangName										= "Deutsch";
+
+
 $aLang = array(
 
 	'charset'									=> 'UTF-8',
@@ -34,3 +38,7 @@ $aLang = array(
 	'HELP_SHOP_MODULE_a4p_autogroups_addToCountryGroup'		=> 'Registrierten Kunden bei Eingabe von Land automatisch in eine entspr. Gruppe (falls vorhanden) aufnehmen'
 	
 );
+
+// ------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------

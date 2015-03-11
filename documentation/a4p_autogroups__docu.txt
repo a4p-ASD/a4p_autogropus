@@ -1,0 +1,95 @@
+
+
+/**
+ *	@author:	a4p ASD / Andreas Dorner
+ *	@company:	apps4print / page one GmbH, Nürnberg, Germany
+ *
+ *
+ *	@version:	1.0.1
+ *	@date:		11.03.2015
+ *
+ *
+ *	a4p_autogroups__docu.txt
+ *
+ *	apps4print - a4p_autogroups - neue Benutzer zu festgelegten Gruppen hinzufügen
+ *
+ */
+
+
+// ------------------------------------------------------------------------------------------------
+Beschreibung:
+
+	neu registrierten Benutzer in angegebenen Gruppen aufnehmen
+	
+	bei Angaben von Firma + UST-ID in Registrierformular optional in Gruppe Händler aufnehmen
+	
+	genauere Prüfung der UST-ID ( für OXID-CE ) je angegebenes Land
+
+
+
+// ------------------------------------------------------------------------------------------------
+Installation:
+
+
+
+// ------------------------------------------------------------------------------------------------
+Kompatibilität:
+
+
+
+
+// ------------------------------------------------------------------------------------------------
+Details:
+	
+
+
+
+// ------------------------------------------------------------------------------------------------
+// gesteste Versionen:
+
+	CE				4.9.2	OK
+
+
+// ------------------------------------------------------------------------------------------------
+Versionen / Changelog:
+	
+	20.02.2015		1.0.1	Version 1.0.1
+							für OXID 4.9.2
+	20.02.2015		1.0.0	Version 1.0.0
+							für OXID 4.7.2
+
+
+
+// ------------------------------------------------------------------------------------------------
+Kontakt:
+
+	Vertrieb:
+			
+		Alexander Steiss
+
+		tel. 0911 9264 -425
+		mail alexander.steiss@apps4print.com
+
+
+	Support:	
+
+		Andreas Dorner
+
+		tel. 0911 9264 -424
+		mail support@apps4print.com
+
+
+	page one GmbH
+	Schwabacher Str. 3
+	90439 Nürnberg
+
+	www.apps4print.com
+
+	tel. 0911 9264 -400
+	fax. 0911 9264 -401
+
+
+
+// ------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------
